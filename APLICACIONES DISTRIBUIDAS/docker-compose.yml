@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    network_mode: host
+    environment:
+      EDUMENTOR_DB_HOST: 127.0.0.1
+      EDUMENTOR_DB_PORT: "3306"
+      EDUMENTOR_DB_NAME: edumentor_db
+      EDUMENTOR_DB_USER: root
+      EDUMENTOR_DB_PASS: root
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

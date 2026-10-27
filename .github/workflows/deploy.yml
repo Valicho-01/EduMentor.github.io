@@ -13,13 +13,16 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
+          local-dir: ./APLICACIONES DISTRIBUIDAS/
           server-dir: /htdocs/
           protocol: ftp
           port: 21
           exclude: |
             **/.git*
             **/.git*/**
-            .github/**
             Dockerfile
             docker-compose.yml
             sql/**
+            *.zip
+            cat
+            config/conexion.php
